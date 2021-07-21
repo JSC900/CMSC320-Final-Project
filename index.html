@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Final Project Final Draft</title>
+<title>Final Project Final Final</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13561,10 +13561,6 @@ Now, let's get scraping!</p>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_row</span>
             
-<span class="c1">#             df = df.append({&#39;title&#39;:title, &#39;score_ranking&#39;:score_ranking, &#39;popularity_ranking&#39;: popularity_ranking,</span>
-<span class="c1">#                             &#39;members&#39;:members, &#39;year&#39;:year, &#39;season&#39;:season, &#39;episodes&#39;:episodes, &#39;studio&#39;:studio, &#39;source&#39;:source,</span>
-<span class="c1">#                             &#39;main_genre&#39;:main_genre, &#39;score&#39;:score, &#39;ave_cast_favorites&#39;:ave_cast_favorites},ignore_index=True)</span>
-            
             
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14170,6 +14166,9 @@ memory usage: 119.7+ KB
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#make datetime column</span>
 
 <span class="k">def</span> <span class="nf">GetDatetime</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function takes in a row and creates a datetime object from the row&#39;s year and season values</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">season</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span>
     <span class="n">month</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">season</span> <span class="o">==</span> <span class="s1">&#39;winter&#39;</span><span class="p">:</span>
@@ -14997,7 +14996,7 @@ There are 2 shows that are in the genre Cars
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The above plot shows the average score of shows that have the genres Action plus another genre. Oddly, it seems that shows that have the genres Action and Parody are the most highly ranked over all paris of Action + another genre. Unsurprisingly, Action shows tend to be scored higher if they have other genres such as Cars, Samurai, Historical, or Thriller. The genre that Action does the worst with is Shoujo Ai, which is a sub genre of romance dealing with specifically girl to girl relationships.</p>
+<p>The above plot shows the average score of shows that have the genres Action plus another genre. Oddly, it seems that shows that have the genres Action and Parody are the most highly ranked over all pairs of Action + another genre. Unsurprisingly, Action shows tend to be scored higher if they have other genres such as Cars, Samurai, Historical, or Thriller. The genre that Action does the worst with is Shoujo Ai, which is a sub genre of romance dealing with specifically girl to girl relationships.</p>
 
 </div>
 </div>
@@ -15112,7 +15111,7 @@ There are 2 shows that are in the genre Cars
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This plot shows the average score of action shows for studios that have made more than 4 action shows over the years 2010 to 2019. It looks like the studios that make the best action shows are Bandai Namco Pictures, Wit Studio, David Production, and Ufotable. As an anime fan, I recognized the last 3 but not the first one. A quick lookup reveals that this is because the later 3 studios have made a decent amount of action shows of different franchises, but most of Bandai Namco Pictures' action shows are of a single franchise, Gintama, which as a franchise is very highly rated.</p>
+<p>This plot shows the average score of action shows for studios that have made more than 4 action shows over the years 2010 to 2019. It looks like the studios that make the best action shows are Bandai Namco Pictures, Wit Studio, David Production, and Ufotable. As an anime fan, I recognized the last 3 but not the first one. A quick lookup reveals that this is because the later 3 studios have made a decent amount of action shows of different franchises, but most of Bandai Namco Pictures' action shows are of a single franchise, Gintama, which as a series is very highly rated.</p>
 
 </div>
 </div>
@@ -15128,8 +15127,8 @@ There are 2 shows that are in the genre Cars
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hypothesis-Testing">Hypothesis Testing<a class="anchor-link" href="#Hypothesis-Testing">&#182;</a></h2><p>Now that we have a decent feel for the data, it's time to get concrete. Let's formally specify a hypothesis and test it. To test a hypothesis, we'll have to come up with the null hypothesis that's specific to our hypothesis, and reject it. The null hypothesis is basically what we would expect if our hypothesis wasn't true. We reject the null hypothesis by doing a p-test and rejecting it if the p-value is less than 0.05. <br>
-Let's start with something simple. Let our hypothesis be that we can predict relative seasonal popularity linearly with score. The null hypothesis would then be that there is no linear predictive power of relative seasonal popularity in score. So if we were to plot a linear regression for relative seasonal popularity vs score, the null hypothesis would expect a trend line that is statistically horizontal (it has a p-value of &gt; 0.05). So let's get a best fit line and see what the p-value for the slope is to see if we can reject the null hypothesis.</p>
+<h2 id="Hypothesis-Testing">Hypothesis Testing<a class="anchor-link" href="#Hypothesis-Testing">&#182;</a></h2><p>Now that we have a decent feel for the data, it's time to get concrete. Let's formally specify a hypothesis and test it. To test a hypothesis, we'll have to come up with the null hypothesis that's specific to that hypothesis, and reject it. The null hypothesis is basically what we would expect if our hypothesis wasn't true. We reject the null hypothesis by doing a p-test and rejecting it if the p-value is less than 0.05. <br>
+Let's start with something simple. Let our hypothesis be that we can predict a show's relative seasonal popularity linearly from the show's score. The null hypothesis would then be that there is no linear predictive power of relative seasonal popularity in score. So if we were to plot a linear regression for relative seasonal popularity vs score, the null hypothesis would expect a trend line that is statistically horizontal (it has a p-value of &gt; 0.05). So let's get a best fit line and see what the p-value for the slope is to see if we can reject the null hypothesis.</p>
 
 </div>
 </div>
@@ -15249,7 +15248,7 @@ Warnings:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Reading from the table that was outputted, the p-value for the slope is appoximately zero when rounding to 3 decimal places, which means that the p-value is less than 0.05. Because of this, we can reject the null hypothesis. We also have an explanation for why relative season popularity would have a linear dependence on score: people tend to watch shows that are scored higher. Because we can reject the null hypothesis, we can conclude that our hypothesis is a plausible explanation.<br>
-But wait a second, we've actually already made this exact plot! That was a fairly simple example of hypothesis testing, so let's come up with another hypothesis. We saw earlier that the average score was trending downwards against time. Can we do a multilinear regression that predicts the relative seasonal popularity using score, while also accounting for how score behaves vs time? We could add another linear variable based on the year, but year might not be the best choice because relative seasonal popularity should not be dependent on time because of how we constructed the variable "relative season popularity". We basically made "relative season popularity" a variable that was independent of time so that we could compare popularity in the context of each season. A better idea might be to create a new cross term variable year*score. So then our hypothesis is that there is a linear relationship between relative seasonal popularity and both score and year*score. Our null hypothesis is the same as last time, that there is no such linear relationship. Let's get the multilinear regression and see what the p-values are.</p>
+But wait a second, we've actually already made this exact plot! Before when we made this plot, we could only make an eyeball estimate on the relationship between relative seasonal popularity and score, but now we have shown statistically  that the linear relationship is significant. That was a fairly simple example of hypothesis testing, so let's come up with another hypothesis. We saw earlier that the average score was trending downwards against time. Can we do a multilinear regression that predicts the relative seasonal popularity using score, while also accounting for how score behaves vs time? We could add another linear variable based on the year, but year might not be the best choice because relative seasonal popularity should not be dependent on time because of how we constructed the variable "relative season popularity". We basically made "relative season popularity" a variable that was independent of time so that we could compare popularity in the context of each season. A better idea might be to create a new cross term variable year*score. So then our hypothesis is that there is a linear relationship between relative seasonal popularity and both score and year*score. Our null hypothesis is the same as last time, that there is no such linear relationship. Let's get the multilinear regression and see what the p-values are.</p>
 
 </div>
 </div>
@@ -15354,7 +15353,7 @@ strong multicollinearity or other numerical problems.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning">&#182;</a></h2><h4 id="The-Model">The Model<a class="anchor-link" href="#The-Model">&#182;</a></h4><p>We've already seen that certain variables have predictive power in predicting the relative seasonal popularity, but can we do better than linear regression with machine learning? The answer is yes. The method we will be using is a k-nearest neighbors classifier (k-NN). k-NN uses shows that are "close" (in some mathematical sense) to a show, and determines what that show's class would be using the k nearest neighbors to that class. I believe that this machine learning method makes sense because shows with similar features will be "close" to each other and are expected to behave roughly the same. I mentioned that we will be using a classifier, so what are the classes that our machine learning model is trying to predict? Let's keep things simple and make 2 classes: class "A" corresponds to shows with a relative seasonal popularity of greater than 0, and class "B" corresponds to shows with a relative season popularity of less than or equal to 0. Another thing we need to consider is how many nearest neighbors each show should have. Let's try testing the model with many different nearest neighbors, and see which ones do better. More information of k-NN is available here: <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm</a></p>
-<h4 id="Testing-the-Model">Testing the Model<a class="anchor-link" href="#Testing-the-Model">&#182;</a></h4><p>We've chosen a machine learning model, but how do we test it? A common danger in machine learning is overfitting, which means that even though the model can predict the training set's classes extremely well, it fails predicting new datas' classes because the model is biased towards the input data. One way to get around this is to randomly cut the data into 2 parts: a training set and a testing set. An even better approach is n-fold cross validation, which breaks the data down into n groups. Even though it's more computationally expensive, n-fold cross validation can give us a realiable estimate on the accuracy of our model without the worry that we're overfitting our model. More information on n-fold cross validation is available here: <a href="https://scikit-learn.org/stable/modules/cross_validation.html">https://scikit-learn.org/stable/modules/cross_validation.html</a></p>
+<h4 id="Testing-the-Model">Testing the Model<a class="anchor-link" href="#Testing-the-Model">&#182;</a></h4><p>We've chosen a machine learning model, but how do we test it? A common danger in machine learning is overfitting, which means that even though the model can predict the training set's classes extremely well, it fails at predicting new datas' classes because the model is biased towards the input data. One way to get around this is to randomly cut the data into 2 parts: a training set and a testing set. An even better approach is n-fold cross validation, which breaks the data down into n groups. Even though it's more computationally expensive, n-fold cross validation can give us a realiable estimate on the accuracy of our model without the worry that we're overfitting our model. More information on n-fold cross validation is available here: <a href="https://scikit-learn.org/stable/modules/cross_validation.html">https://scikit-learn.org/stable/modules/cross_validation.html</a></p>
 
 </div>
 </div>
@@ -15428,7 +15427,7 @@ The accuracy of the classifier with 49 nearest neighbors as given by a 10-fold c
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The best accuracy we got was around 66%, which is hardly better than a coin flip. Instead of trying to predict if a show is in the popular half of not popular half, let's try classifying shows that are very popular and shows that aren't. This way, our model might have a higher accuracy, and the model might be more useful or interesting if our goal is to identify the most popular shows for each season.</p>
+<p>The best accuracy we got was around 66%, which is hardly better than a coin flip (it's pretty bad). Instead of trying to predict if a show is in the popular half or the not popular half, let's try classifying shows based on ones that are very popular and shows that aren't. This way, our model might have a higher accuracy, and the model might be more useful or interesting if our goal is to identify the most popular shows for each season.</p>
 
 </div>
 </div>
@@ -15502,7 +15501,7 @@ The accuracy of the classifier with 49 nearest neighbors as given by a 10-fold c
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ok, so this model is much better in terms of accuracy. It would appear that it's easier for out model to predict if a show is very popular or not as opposed to predicting if a show if in the more popular half of a season or not.</p>
+<p>Ok, so this model is much better in terms of accuracy. It would appear that it's easier for out model to predict if a show is very popular or not as opposed to predicting if a show is in the more popular half of a season or not.</p>
 
 </div>
 </div>
@@ -15521,56 +15520,17 @@ The accuracy of the classifier with 49 nearest neighbors as given by a 10-fold c
 <p>We've also obtained a number of interesting insights into our particular data set, such as:<br></p>
 <ol>
 <li>The amount of shows with 30000 members or more coming out per season is generally increasing with time</li>
-<li>The average score of shows with 30000 members or more coming out in this time period was trending downwards</li>
+<li>The average score of shows with 30000 members or more coming out in this time period was trending downwards with time</li>
 <li>This set of shows was generally higher ranked in terms of popularity rankings compared to score rankings</li>
 <li>For each season, the relative popularity of a show was generally increasing with the show's score</li>
+<li>Action shows were on average scored more highly when paired with certain genres, and scored lower when paired with others</li>
+<li>The most common genre Action shows are grouped with is Fantasy</li>
+<li>Certain studios are better at making action shows than others</li>
 </ol>
 <p>And with that, the tutorial is concluded. Have a nice day!</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="a3b29781-aa33-486f-b0b3-b0e49a2d2487"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#a3b29781-aa33-486f-b0b3-b0e49a2d2487');
-IPython.OutputArea.prototype._should_scroll = function(lines) {
-    //this is just a scroll wheel setting for Jupyter notebooks
-    return false;
-}
-
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
